@@ -1,0 +1,16 @@
+name: LagRegionReducer
+version: 1.2
+main: me.benjamin.LagRegionReducer
+api-version: 1.21
+author: Benjamin
+description: Auto-reduces view/sim distance in manual/auto-flagged laggy regions (lavacasts!). Per-player toggle & customs.
+commands:
+  lagregion:
+    description: Manage lag regions & personal settings
+    usage: /lagregion <reload|clear-manual|clear-flags [world]|list|toggle|set [view|sim] <2-32>|status>
+    permission: lagregion.use  # For player cmds; admin for others
+permissions:
+  lagregion.use:
+    default: true
+  lagregion.admin:
+    default: op

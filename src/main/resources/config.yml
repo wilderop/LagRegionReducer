@@ -1,0 +1,32 @@
+# Auto-reduce distances in laggy areas (edit & /lagregion reload)
+low-view-dist: 2      # View distance when flagged/near
+low-sim-dist: 2       # Sim distance (affects entity ticking)
+
+# Auto-detection on new chunk loads
+auto-detect: true
+density-threshold: 0.35    # % of blocks that must be "bad" (35% = \~14k in 50-200 Y)
+min-cobble-count: 12000    # Absolute min bad blocks to flag
+block-types:               # Lag-causing blocks (cobble + stone for lavacasts)
+  - COBBLESTONE
+  - STONE
+# - NETHERRACK  # Add more if needed
+scan-min-y: 50             # Skip below (bedrock/air) → faster scans
+scan-max-y: 150            # Skip above (void/build limit)
+max-flags-per-world: 5000  # Prevent config spam
+neighbor-radius: 1         # 1=3x3 chunks around flagged (0=self only, 2=5x5)
+
+# Manual regions (overrides auto)
+regions:
+  example-lavacast:
+    world: world
+    minX: -200
+    minY: 60
+    minZ: -200
+    maxX: 200
+    maxY: 120
+    maxZ: 200
+    viewDist: 3      # Custom per-region
+    simDist: 3
+
+# Auto-flags persist here (don't edit)
+flagged-chunks: {}
